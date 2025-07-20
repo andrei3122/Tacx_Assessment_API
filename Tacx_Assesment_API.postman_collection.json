@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "339fa4e6-bf78-41aa-8c3f-5f7b7b3a814e",
-		"name": "Tacx Assesment",
+		"name": "Tacx_Assesment_API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "45253725",
 		"_collection_link": "https://andrei-6799213.postman.co/workspace/Andrei's-Workspace~ac81fa26-f1ea-456e-8d13-d95a10e59b72/collection/45253725-339fa4e6-bf78-41aa-8c3f-5f7b7b3a814e?action=share&source=collection_link&creator=45253725"
@@ -9,41 +9,353 @@
 	"item": [
 		{
 			"name": "Get1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 429) {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"        pm.response.to.have.status(429);\r",
+							"    });\r",
+							"}\r",
+							"else if (pm.response.code === 401){\r",
+							"    pm.test(\"Status code is 401 because no valid credentials\", () => {\r",
+							"        pm.response.to.have.status(401);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"else if (pm.response.code === 200){pm.test(\"Status code is 200 which is great!\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", () => { pm.expect(pm.response.responseTime).to.be.below(2000);});\r",
+							"\r",
+							"pm.test(\"Is it in JSON format?\", () => {pm.response.to.be.json;});\r",
+							"\r",
+							"pm.test(\"There are employees, more than 0 at least\", () => { pm.expect(pm.response.json().data.length).to.be.above(0);})\r",
+							"\r",
+							"pm.test(\"There are less than 25 employees\", () => { pm.expect(pm.response.json().data.length).to.be.below(25);})\r",
+							"\r",
+							"pm.test(\"First employee salary is more than 300000\", () => { pm.expect(pm.response.json().data[0].employee_salary).to.be.above(300000);})\r",
+							"\r",
+							"pm.test(\"First employee name is 'Tiger Nixon'\", () => { pm.expect(pm.response.json().data[0].employee_name).to.eql(\"Tiger Nixon\");})\r",
+							"\r",
+							"const employees = pm.response.json().data; //array of employees\r",
+							"\r",
+							"const ids = new Set();\r",
+							"\r",
+							"//delete employees[23].employee_name; //to test that the loop works\r",
+							"\r",
+							"pm.test(\"Each employee has a unique id, a name and a salary\", () => {\r",
+							"    employees.forEach((employee) => {\r",
+							"        pm.expect(employee).to.have.property(\"id\");\r",
+							"        pm.expect(employee).to.have.property(\"employee_name\");\r",
+							"        pm.expect(employee).to.have.property(\"employee_salary\");\r",
+							"        pm.expect(ids.has(employee.id)).to.be.false;\r",
+							"        ids.add(employee.id);\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Get2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 429) {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"        pm.response.to.have.status(429);\r",
+							"    });\r",
+							"}\r",
+							"else if (pm.response.code === 401){\r",
+							"    pm.test(\"Status code is 401 because no valid credentials\", () => {\r",
+							"        pm.response.to.have.status(401);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"else if (pm.response.code === 200){pm.test(\"Status code is 200 which is great!\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", () => { pm.expect(pm.response.responseTime).to.be.below(2000);});\r",
+							"\r",
+							"pm.test(\"Is it in JSON format?\", () => {pm.response.to.be.json;});\r",
+							"\r",
+							"const dataJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Check if the employee has an id\", () => {pm.expect(dataJson.data.id).to.not.be.null;});\r",
+							"\r",
+							"pm.test(\"Check if the employee has a name\", () => {pm.expect(dataJson.data.employee_name).to.not.be.null;});\r",
+							"\r",
+							"pm.test(\"Check if the employee has a salary\", () => {pm.expect(dataJson.data.employee_salary).to.not.be.null;});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employee/27",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"27"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 429) {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"        pm.response.to.have.status(429);\r",
+							"    });\r",
+							"}\r",
+							"else if (pm.response.code === 401){\r",
+							"    pm.test(\"Status code is 401 because no valid credentials\", () => {\r",
+							"        pm.response.to.have.status(401);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"else if (pm.response.code === 200){pm.test(\"Status code is 200 which is great!\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", () => { pm.expect(pm.response.responseTime).to.be.below(2000);});\r",
+							"\r",
+							"pm.test(\"Is it in JSON format?\", () => {pm.response.to.be.json;});\r",
+							"\r",
+							"const dataJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Check if the employee has the name 'Tester'\", () => {pm.expect(dataJson.data.employee_name).to.eql(\"Tester\");});\r",
+							"\r",
+							"pm.test(\"Check if the employee has a salary of '100000'\", () => {pm.expect(dataJson.data.employee_salary).to.eql(\"100000\");});\r",
+							"\r",
+							"pm.test(\"Check if the employee has the age of '3'\", () => {pm.expect(dataJson.data.employee_age).to.eql(\"3\");});\r",
+							"\r",
+							"pm.test(\"Check if the employee has an id\", () => {pm.expect(dataJson.data.id).to.not.be.null;});\r",
+							"//the id is random so it cannot be checked for a specific value"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"employee_name\" : \"Tester\",\r\n    \"employee_salary\" : \"100000\",\r\n    \"employee_age\" : \"3\"    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 429) {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"        pm.response.to.have.status(429);\r",
+							"    });\r",
+							"}\r",
+							"else if (pm.response.code === 401){\r",
+							"    pm.test(\"Status code is 401 because no valid credentials\", () => {\r",
+							"        pm.response.to.have.status(401);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"else if (pm.response.code === 200){pm.test(\"Status code is 200 which is great!\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", () => { pm.expect(pm.response.responseTime).to.be.below(2000);});\r",
+							"\r",
+							"pm.test(\"Is it in JSON format?\", () => {pm.response.to.be.json;});\r",
+							"\r",
+							"const dataJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Check if the employee has an updated name of 'Tester Updated 55'\", () => {pm.expect(dataJson.data.employee_name).to.eql(\"Tester Updated 55\");});\r",
+							"\r",
+							"pm.test(\"Check if the employee has an updated salary of '120000000 55'\", () => { pm.expect(dataJson.data.employee_salary).to.eql(\"120000000 55\"); });\r",
+							"\r",
+							"pm.test(\"Check if the employee has an updated age of '411 55'\", () => {pm.expect(dataJson.data.employee_age).to.eql(\"411 55\");});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employee_name\": \"Tester Updated 55\",\r\n  \"employee_salary\": \"120000000 55\",\r\n  \"employee_age\": \"411 55\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/update/27",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"27"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 429) {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"        pm.response.to.have.status(429);\r",
+							"    });\r",
+							"}\r",
+							"else if (pm.response.code === 401){\r",
+							"    pm.test(\"Status code is 401 because no valid credentials\", () => {\r",
+							"        pm.response.to.have.status(401);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"else if (pm.response.code === 200){pm.test(\"Status code is 200 which is great!\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", () => { pm.expect(pm.response.responseTime).to.be.below(2000);});\r",
+							"\r",
+							"pm.test(\"Is it in JSON format?\", () => {pm.response.to.be.json;});\r",
+							"\r",
+							"const dataJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status is success\", () => {pm.expect(dataJson.status).to.eql(\"success\");});\r",
+							"\r",
+							"pm.test(\"Message is Successfully! Record has been deleted\", () => {pm.expect(dataJson.message).to.eql(\"Successfully! Record has been deleted\");});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/delete/20",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"20"
+					]
+				}
 			},
 			"response": []
 		}
