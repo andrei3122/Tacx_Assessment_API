@@ -17,7 +17,7 @@ Each request contains tests written in the **Tests** tab of Postman using JavaSc
 - Field-level validations (e.g., "employee_name", "employee_salary", etc.)
 
 ## Files Included
-- "Tacx_Assessment.postman_collection.json": The Postman test collection
+- "Tacx_Assessment_API.postman_collection.json": The Postman test collection
 
 ## How to Run the Scripts
 1. **Install [Postman]**(https://www.postman.com/downloads/)
