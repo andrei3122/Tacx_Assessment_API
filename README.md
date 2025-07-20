@@ -23,7 +23,9 @@ Each request contains tests written in the **Tests** tab of Postman using JavaSc
 1. **Install [Postman]**(https://www.postman.com/downloads/)
 2. **Import the collection**:
    - Open Postman
-   - Click "Import" > "Upload Files" > Select "Tacx_Assessment.postman_collection.json"
+   - Click "Import"
+   - Click "Upload Files"
+   - Select the "Tacx_Assessment.postman_collection.json" file
 4. **Run each request manually**
    - Or use the Collection Runner to run all at once
 
