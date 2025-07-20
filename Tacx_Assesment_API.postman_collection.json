@@ -17,7 +17,7 @@
 							"// first check what is the status code of the response. If it is 429, then it means that too many people are using this website. If it is 401, then it means that no valid credentials. If it is 200, then it means that the request was successful\r",
 							"\r",
 							"if (pm.response.code === 429) {\r",
-							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website. Please retry later\", () => {\r",
 							"        pm.response.to.have.status(429);\r",
 							"    });\r",
 							"}\r",
@@ -115,7 +115,7 @@
 						"exec": [
 							"//this code check for the response code. If 429, then too many people are using it. If 401, invalid credentials. If 200, then it is good.\r",
 							"if (pm.response.code === 429) {\r",
-							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website. Please retry later\", () => {\r",
 							"        pm.response.to.have.status(429);\r",
 							"    });\r",
 							"}\r",
@@ -182,7 +182,7 @@
 						"exec": [
 							"//this code check for the response code. If 429, then too many people are using it. If 401, invalid credentials. If 200, then it is good.\r",
 							"if (pm.response.code === 429) {\r",
-							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website. Please retry later\", () => {\r",
 							"        pm.response.to.have.status(429);\r",
 							"    });\r",
 							"}\r",
@@ -261,7 +261,7 @@
 						"exec": [
 							"//this code check for the response code. If 429, then too many people are using it. If 401, invalid credentials. If 200, then it is good.\r",
 							"if (pm.response.code === 429) {\r",
-							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website. Please retry later\", () => {\r",
 							"        pm.response.to.have.status(429);\r",
 							"    });\r",
 							"}\r",
@@ -337,7 +337,7 @@
 						"exec": [
 							"//this code check for the response code. If 429, then too many people are using it. If 401, invalid credentials. If 200, then it is good.\r",
 							"if (pm.response.code === 429) {\r",
-							"    pm.test(\"Status code is 429 because too many people are using this website\", () => {\r",
+							"    pm.test(\"Status code is 429 because too many people are using this website. Please retry later\", () => {\r",
 							"        pm.response.to.have.status(429);\r",
 							"    });\r",
 							"}\r",
