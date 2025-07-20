@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "339fa4e6-bf78-41aa-8c3f-5f7b7b3a814e",
+		"name": "Tacx Assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45253725",
+		"_collection_link": "https://andrei-6799213.postman.co/workspace/Andrei's-Workspace~ac81fa26-f1ea-456e-8d13-d95a10e59b72/collection/45253725-339fa4e6-bf78-41aa-8c3f-5f7b7b3a814e?action=share&source=collection_link&creator=45253725"
+	},
+	"item": [
+		{
+			"name": "Get1",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get2",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
