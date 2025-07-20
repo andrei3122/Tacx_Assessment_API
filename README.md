@@ -27,7 +27,7 @@ Each request contains tests written in the **Tests** tab of Postman using JavaSc
    - Click the "files" button
    - Select the "Tacx_Assessment_API.postman_collection.json" file
 3. **Run each request manually by clicking the "Send" button**
-   - Or use the Collection Runner to run all at once (click on the triple dots next to the collection > click "run" > click "Run Tacx_Assessment_API")
+   - Or use the Collection Runner to run all at once (click on the triple dots next to the collection > click "run" > click "Run Tacx_Assessment_API". Not reccomended due to error 429)
 
 ## Notes
 - Please note that due to many people accessing this website for testing purpouses, the code may fail due to error 429 "Too Many Requests". If this happens, wait 30 seconds and retry running the code.
