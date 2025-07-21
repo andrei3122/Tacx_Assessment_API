@@ -21,12 +21,13 @@ Each request contains tests written in the **Tests** tab of Postman using JavaSc
 
 ## How to Run the Scripts
 1. **Install [Postman]**(https://www.postman.com/downloads/)
-2. **Import the collection**:
+2. **Download the raw file "Tacx_Assessment_API.postman_collection.json" from this link https://github.com/andrei3122/Tacx_Assessment_API/blob/main/Tacx_Assesment_API.postman_collection.json**
+3. **Import the collection**:
    - Open Postman
    - Click "Import"
    - Click the "files" button
    - Select the "Tacx_Assessment_API.postman_collection.json" file
-3. **Run each request manually by clicking the "Send" button**
+4. **Run each request manually by clicking the "Send" button**
    - Or use the Collection Runner to run all at once (click on the triple dots next to the collection > click "run" > click "Run Tacx_Assessment_API". Not reccomended due to error 429)
 
 ## Notes
